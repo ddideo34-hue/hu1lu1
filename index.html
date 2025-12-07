@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hulu Gift Card Landing Page</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        color: #111;
+    }
+
+    /* Header */
+    header {
+        background: white;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #ddd;
+    }
+    .logo {
+        font-size: 32px;
+        font-weight: bold;
+        color: #1ce783; /* Hulu green */
+        letter-spacing: 1px;
+    }
+
+    /* Main Layout */
+    .container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .title {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        color: #1ce783;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 30px;
+    }
+
+    /* Gift Card Image Area */
+    .gift-image-area {
+        width: 100%;
+        height: 220px;
+        background: #e9ffe9;
+        border: 2px dashed #1ce783;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #1ce783;
+        margin-bottom: 25px;
+        font-size: 20px;
+    }
+
+    /* How to Complete */
+    .steps {
+        margin-top: 20px;
+    }
+    .steps h2 {
+        color: #1ce783;
+    }
+
+    /* Reviews */
+    .reviews {
+        margin-top: 40px;
+    }
+    .review-box {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 4px solid #1ce783;
+    }
+
+    /* Buttons */
+    .btn {
+        display: block;
+        width: 100%;
+        background: #1ce783;
+        color: white;
+        border: none;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    /* Loader */
+    .loader-box {
+        margin-top: 20px;
+        text-align: center;
+        display: none;
+    }
+
+    .progress-bar {
+        width: 80%;
+        margin: 0 auto;
+        height: 20px;
+        background: #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .progress-fill {
+        width: 0%;
+        height: 100%;
+        background: #1ce783;
+        transition: width 0.3s;
+    }
+
+    .final-message {
+        display: none;
+        text-align: center;
+        font-size: 22px;
+        margin-top: 20px;
+        color: #1ce783;
+    }
+
+
+    /* Down Button */
+    .down-btn {
+        width: 100%;
+        margin-top: 40px;
+        padding: 15px;
+        font-size: 20px;
+        background: #111;
+        color: white;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">hulu</div>
+</header>
+
+<div class="container">
+    <div class="title">Get Your Free Hulu Gift Card</div>
+    <div class="subtitle">Trusted by 1,224 people</div>
+
+    <div class="gift-image-area"><img src="image/XCMLSWYjTxe4bxrQsFYZ2Q (2).jpg" alt=""></div>
+
+    
+    <a href="https://singingfiles.com/show.php?l=0&u=2041729&id=71508"><button class="btn">Get Yours Today</button></a>
+
+    <div class="steps">
+        <h2>How to Complete the Offer</h2>
+        <p>1. Click the button above to begin your claim.</p>
+        <p>2. Complete the required steps on the offer page.</p>
+        <p>3. Once completed, your Hulu gift card will be activated instantly.</p>
+    </div>
+
+    <h3 style="margin-top:35px;">Check how many gift cards are left</h3>
+    <button class="btn" onclick="startCheck()">Check</button>
+
+    <div class="loader-box" id="loaderBox">
+        <p>Checking availability...</p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p id="percentText">0%</p>
+    </div>
+
+    <div class="final-message" id="finalMessage">15 gift cards left — Get yours now.</div>
+    <a href="https://singingfiles.com/show.php?l=0&u=2041729&id=71508"><button class="btn">Get Yours Today</button></a>
+
+
+    <!-- Reviews -->
+    <div class="reviews">
+        <h2>Reviews from the USA</h2>
+
+        <div class="review-box">“Super easy and fast. Got my Hulu card in minutes.” – Dallas, Texas</div>
+        <div class="review-box">“Legit and smooth process. Highly recommended.” – Colton, California</div>
+        <div class="review-box">“Worked perfectly. Thank you!” – Luna, Florida</div>
+    </div>
+
+</div>
+
+<script>
+function startCheck() {
+    document.getElementById('loaderBox').style.display = 'block';
+    let progress = 0;
+    const fill = document.getElementById('progressFill');
+    const text = document.getElementById('percentText');
+    const final = document.getElementById('finalMessage');
+
+    const interval = setInterval(() => {
+        progress += 1;
+        fill.style.width = progress + '%';
+        text.innerText = progress + '%';
+        if (progress >= 100) {
+            clearInterval(interval);
+            final.style.display = 'block';
+        }
+    }, 120);
+}
+</script>
+
+</body>
+</html>
